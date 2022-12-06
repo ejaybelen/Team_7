@@ -1,38 +1,52 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'list-syllabus' %}">Sittybos</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-syllabus' %}">Create A Syllabus</a>
-          </li>
+  <div class="container-fluid">
 
+    <button class="btn btn-primary me-2 bg-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <span class="navbar-toggler-icon bg-dark"></span>
+    </button>
+
+
+    <a class="navbar-brand me-auto" href="{% url 'list-syllabus' %}">Sittybos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <form class="d-flex" method=POST action="{% url 'search-syllabus' %}">
+
+      {% csrf_token %}
+
+    <input class="form-control me-2" type="search" placeholder="Search Syllabus" aria-label="Search" name="searched">
+    <button class="btn btn-outline-secondary" type="submit">Search</button>  
+
+
+    <div class="offcanvas offcanvas-start bg-dark text-white sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+
+     <div class="offcanvas-body p-0">
+      <nav class="navbar-dark">
+        <ul class="navbar-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-item me-2 lg-0">
+          <li class="nav-item">
+            <a class="nav-link px-3 active" href="{% url 'add-syllabus' %}">Create A Syllabus</a>
+          </li>
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            </li>
+              <a class="nav-link px-3 active" href="{% url 'logout' %}">Logout</a>
+           </li>
           {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register_user' %}">Register</a>
-          </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-link px-3 active" href="{% url 'register_user' %}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 active" href="{% url 'login' %}">Login</a>
             </li>
           {% endif %}
-
-
         </ul>
-        <form class="d-flex" method=POST action="{% url 'search-syllabus' %}">
-
-          {% csrf_token %}
-
-          <input class="form-control me-2" type="search" placeholder="Search Syllabus" aria-label="Search" name="searched">
-          <button class="btn btn-outline-secondary" type="submit">Search</button>
-        </form>
+        </ul>
       </div>
+      </nav>
+
+      </form>
     </div>
-  </nav>
+  </div>
+</nav>
