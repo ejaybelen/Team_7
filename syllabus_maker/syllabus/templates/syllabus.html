@@ -1,13 +1,25 @@
+{% extends 'base.html' %}
+
 {% block content %}
+
 
     <h1>List of Syllabus</h1>
     {% for details in details_list %}
-    <ul>
-        <li>Course Code: {{ details.c_code }}</li>
-        <li>Course Name: {{ details.name }}</li>
-        <li>Credits: {{ details.credits }}</li>
-
-    </ul>
+      <div class="card">
+        <a href="{% url 'show-syllabus' details.id %}">
+          <div class="card-header">
+            <strong>{{ details.c_code }}</strong></a>
+          </div>
+          <div class="card-body">
+            <h6 class="card-title">
+              Course Name: {{ details.name }}<br/>
+              Credits: {{ details.credits }} Units<br/> 
+            </h6>
+            <p class="card-text">
+              <strong>Course Description:</strong> </br>{{ details.course_description }}
+            </p>
+          </div>
+        </div>
     {% endfor %}
 
 

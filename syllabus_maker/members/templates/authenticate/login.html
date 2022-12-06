@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<link rel="stylesheets" href="static/register.css"
+{% block content %}
+    <center>
+      <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-md-5">
+         <div class="card">
+           <h2 class="card-title text-center">Login <a href="http://opensnippets.com"></a></h2>
+            <div class="card-body py-md-4">
+             <form _lpchecked="1">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Username</label>
+                      <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" name="password">
+                    </div>
+
+                <input type="submit" value="Submit" class="btn btn-secondary">
+
+            </form>
+    </center>
+
+    
+              
+
+
+
+
+{% endblock %}

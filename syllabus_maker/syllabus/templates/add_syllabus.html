@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center>
+        <h1>Create a Syllabus</h1>
+        <br/><br/>
+        {%  if submitted %}
+            Your Syllabus Was Created Successfully!!!
+
+        {% else %}
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <input type="submit" value="Submit" class="btn btn-secondary">
+
+            </form>
+        {% endif %}
+    </center>
+
+
+
+
+{% endblock %}

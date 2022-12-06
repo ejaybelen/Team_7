@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    There was an error in your registration form.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+
+<div class="container">
+  <div class="row justify-content-center">
+  <div class="col-md-5">
+   <div class="card">
+     <h2 class="card-title text-center">Register <a href="http://opensnippets.com"></a></h2>
+      <div class="card-body py-md-4">
+       <form _lpchecked="1">
+        <br/><br/>
+
+            <form action="{% url 'register_user' %}" method="POST">
+                {% csrf_token %}
+                <form>
+                    {{ form.as_p }}
+                <br/><br/>
+                <div class="row justify-content-center">
+                <input type="submit" value="Submit" class="btn btn-secondary">
+              </div>
+
+            </form>
+
+
+
+
+{% endblock %}

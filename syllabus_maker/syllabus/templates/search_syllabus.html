@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center>
+    {% if searched %}
+        <h1>You Searched For {{ searched }}</h1>
+        <br/>
+        {% for syllabus in syllabus %}
+            <a href="{% url 'show-syllabus' syllabus.id %}">{{ syllabus.c_code }} {{ syllabus.name }}</a><br/>
+        {% endfor %}
+
+    {% else %}
+        <h1>Hey! You Forgot To Search For A Syllabus...</h1>
+
+    {% endif %}
+
+    </center>
+
+
+
+
+{% endblock %}

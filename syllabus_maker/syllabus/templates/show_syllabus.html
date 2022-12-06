@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <h1>{{ syllabus.c_code }} Syllabus</h1>
+    <div class="text-end">
+      <a class="btn btn-secondary btn-sm rounded-4" href="{% url 'update-syllabus' syllabus.id %}">Update Syllabus</a>
+      <a class="btn btn-danger btn-sm rounded-4" href="{% url 'delete-syllabus' syllabus.id %}">Delete Syllabus</a>
+    </div> </br>
+    <div class="card">
+        <div class="card-header">
+          <strong>{{ syllabus.c_code }}</strong>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">
+            Course Name: {{ syllabus.name }}<br/>
+            Credits: {{ syllabus.credits }} Units<br/> 
+          </h6>
+          <p class="card-text">
+            <strong>Course Description:</strong> </br>{{ syllabus.course_description }}
+          </p>
+        </div>
+      </div>
+      <br/>
+      <div class="text-end">
+        <a class="btn btn-info btn-sm rounded-4" href="{% url 'course-pdf' syllabus.id %}">Print to PDF</a>
+      </div>
+
+
+
+
+
+{% endblock %}
