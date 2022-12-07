@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ course.c_code }} {{ course.name }} Syllabus</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12px;
+      }
+
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+
+      }
+
+      th, td {
+        text-align: justify;
+        padding: 2px;
+        margin-left: auto;
+        margin-right: auto;
+
+      }
+
+      th {
+        text-align: left;
+        width:20%;
+      }
+
+      td {
+        width: 80%;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+        <div>
+            <h1>TECHNOLOGICAL INSTITUTE OF THE PHILIPPINES</h1>
+        </div>
+        <table width="600">
+          <thead>
+            <h1>COURSE SYLLABUS</h1>
+          </thead>
+          <tbody>
+            <tr>
+              <th><h2>COURSE CODE<br/>COURSE NAME</h2></th>
+              <td>
+                <strong>{{ course.c_code }}<br/>{{ course.name }}</strong>
+              </td>
+            </tr>
+            <tr>
+              <th><h2>CREDITS<br/>CONTACT HOURS</h2></th>
+              <td>
+                {{ course.credits }} units lecture
+                <br/>{{ course.contact_hours }} unit laboratory
+              </td>
+            </tr>
+            <tr>
+              <th><h2>INSTRUCTOR</h2></th>
+              <td>
+                {% for user in course.instructor.all %} 
+                <br>
+                {{ user.abbrev }} {{ user.fname }} {{ user.lname}} 
+                <br>
+                {{ user.role }}, {{ user.dept }}
+              {% endfor %}
+              </td>
+            </tr>
+            <tr>
+              <th><h2>TEXTBOOK</h2></th>
+              <td>
+                {{ course.textbook }}
+              </td>
+            </tr>
+            <tr>
+              <th><h2>Other Supplemental Materials</h2></th>
+              <td>
+                {{ course.textbook2 }}
+              </td>
+            </tr>
+            <tr>
+              <th colspan="2"><h2>SPECIFIC COURSE INFORMATION</h2></th>
+            </tr>
+            <tr>
+              <th colspan="2"><h2>a. Course Description</h2></th>
+            </tr>
+            <tr>
+              <td colspan="2">
+              {{ course.course_description }}
+              </td>
+            </tr>
+            <tr>
+              <th><h2>b. Prerequisites Co-requisites</h2></th>
+              <td>{{ course.prereq }}</td>
+            </tr>
+            <tr>
+              <th><h2>c. Course Classification (Required/elective/selected/elective</h2></th>
+              <td>Required</td>
+            </tr>
+            <tr>
+              <th colspan="2"><h2>SPECIFIC GOALS FOR THE COURSE</h2></th>
+            </tr>
+            <tr>
+              <th colspan="2"><h2>a. Course Objective</h2></th>
+            </tr>
+            <tr>
+              <td colspan="2">
+              {{ course.course_objective }}
+              </td>
+              <tr>
+                <th colspan="2"><h2>b. Course Outcomes</h2></th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                {{ course.ILO }}
+                </td>
+                <tr>
+                  <th colspan="2"><h2>c. Student Outcomes Addressed by the Course</h2></th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                  {{ course.s_outcomes }}
+                  </td>
+                  <tr>
+                    <th colspan="2"><h2>COURSE TOPICS</h2></th>
+                  </tr>
+                  <td colspan="2">
+                    {{ course.prelim }}<br/>
+                    {{ course.midterm }}<br/>
+                    {{ course.finals }}
+                  </td>
+          </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center>
+        <h1>Create a Syllabus</h1>
+        <br/><br/>
+        {%  if submitted %}
+            Your Syllabus Was Created Successfully!!!
+
+        {% else %}
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <div class="col-lg-4">
+                    <button type="submit" value="Submit" class="btn1" >Submit</button>
+                </div>
+                <br/>
+
+            </form>
+
+            <style>
+                *{
+                    padding: 0;
+                    margin: 0;
+                    box-sizing: border-box;
+                }
+                .btn1{
+                    border: none;
+                    outline: none;
+                    height: 40px;
+                    width: 100%;
+                    background-color: black;
+                    color: white;
+                    border-radius: 4px;
+                    font-weight: bold;
+                }
+            </style>
+
+        {% endif %}
+    </center>
+
+
+
+
+{% endblock %}
