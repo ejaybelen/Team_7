@@ -1,14 +1,15 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.db.models import Model
+from django.contrib.auth.models import User
 
 
 # Tables
 
 class Instructor(models.Model):
     abbrev = models.CharField(max_length=50)
-    fname = models.CharField(max_length=100)
-    lname = models.CharField(max_length=100)
+    fname = models.ForeignKey(User, blank=True, related_name='fname', on_delete=models.CASCADE)
+    lname = models.ForeignKey(User, blank=True, related_name='lname', on_delete=models.CASCADE)
     dept = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
 
@@ -16,9 +17,9 @@ class Instructor(models.Model):
         return self.abbrev + ' ' + self.fname + ' ' + self.lname
 
 class Signature(models.Model):
-    prep = models.CharField(max_length=100)
-    note1 = models.CharField(max_length=100)
-    note2 = models.CharField(max_length=100)
+    prep = models.ForeignKey(User, blank=True, related_name='prep', on_delete=models.CASCADE)
+    note1 = models.ForeignKey(User, blank=True, related_name='note1', on_delete=models.CASCADE)
+    note2 = models.ForeignKey(User, blank=True, related_name='note2', on_delete=models.CASCADE)
     date = models.DateField()
 
     def __str__(self):
