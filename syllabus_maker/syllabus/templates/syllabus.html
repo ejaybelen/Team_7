@@ -3,23 +3,24 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="text-center py-3 ">
+<div class="text-center my-5">
   <h1>List of Syllabus</h1>
 </div>
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3 g-4 pt-3">
     <div class="col">
-      <div class="card h-100">
-        <a href="{% url 'add-syllabus' %}" class="text-decoration-none text-reset stretched-link"></a>
-          <div class="card-header">
-            <strong>CREATE NEW</strong>
-          </div>
-          <div class="card-body">
-            <div class="card-title">
-              <div class="text-center fw-bold fs-1">+</div>
+        <div class="card h-100">
+          <a href="{% url 'add-syllabus' %}" class="text-decoration-none text-reset stretched-link">
+            <div class="card-header">
+              <strong>CREATE NEW</strong>
             </div>
-          </div>
-      </div>
+            <div class="card-body">
+              <div class="card-title">
+                <div class="text-center fw-bold fs-1">+</div>
+              </div>
+            </div>
+          </a>
+        </div>
     </div>
     {% for details in details_list %}
     <div class="col">
@@ -29,16 +30,15 @@
             <strong>{{ details.c_code }}</strong>
           </div>
           <div class="card-body">
-            <div class="card-title">
-              Course Name: <strong>{{ details.name }}</strong>
-            </div>
-            <div class="card-text">
-              <div class="text-truncate">
-                Credits: {{ details.credits }} units<br/> 
-                <strong>Course Description:</strong> </br>{{ details.course_description }}
-              </div>
-            </div>
+            <h6 class="card-title">
+              <strong>Course Name:</strong> {{ details.name }}<br/>
+              <strong>Credits:</strong> {{ details.credits }} Units<br/> 
+            </h6>
+            <p class="card-text">
+              <strong>Course Description:</strong> </br>{{ details.course_description }}
+            </p>
           </div>
+        </a>
         </div>
     </div>
     {% endfor %}

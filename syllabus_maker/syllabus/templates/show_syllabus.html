@@ -2,37 +2,29 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-
-    <h1>{{ syllabus.c_code }} Syllabus</h1>
-    <div class="text-end">
+<div class="container">
+  <h1 class="text-center my-5">{{ syllabus.c_code }} Syllabus</h1>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4>{{ syllabus.c_code }} - {{ syllabus.name }}</h4>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">
+        <strong>Course Name:</strong> {{ syllabus.name }}<br/>
+        <strong>Credits:</strong> {{ syllabus.credits }} Units<br/> 
+      </h6>
+      <p class="card-text">
+        <strong>Course Description:</strong> </br>{{ syllabus.course_description }}
+      </p>
+    </div>
+    <div class="text-end pb-3 mx-3">
       <a class="btn btn-secondary btn-sm rounded-4" href="{% url 'update-syllabus' syllabus.id %}">Update Syllabus</a>
       <a class="btn btn-danger btn-sm rounded-4" href="{% url 'delete-syllabus' syllabus.id %}">Delete Syllabus</a>
-    </div> </br>
-    <div class="card">
-        <div class="card-header">
-          <strong>{{ syllabus.c_code }}</strong>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title">
-            Course Name: {{ syllabus.name }}<br/>
-            Credits: {{ syllabus.credits }} Units<br/> 
-          </h6>
-          <p class="card-text">
-            <strong>Course Description:</strong> </br>{{ syllabus.course_description }}
-          </p>
-        </div>
-      </div>
-      <br/>
-      <div class="text-end">
-        <a class="btn btn-info btn-sm rounded-4" href="{% url 'course-pdf' syllabus.id %}">Print to PDF</a>
-      </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
+      <a class="btn btn-info btn-sm rounded-4" href="{% url 'course-pdf' syllabus.id %}">Print to PDF</a>
+    </div>
+  </div>
+</div>
+    
 {% endblock %}
