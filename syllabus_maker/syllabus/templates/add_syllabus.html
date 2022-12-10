@@ -9,7 +9,11 @@
         <h1>Create a Syllabus</h1>
     </div>
     {%  if submitted %}
-        Your Syllabus Was Created Successfully!!!
+        <div class="text-center">
+            <div class="fw-bold">Your Syllabus Was Created Successfully!!!</div>
+            <div class="fst-italic">Click <a href="{% url 'add-syllabus' %}">here</a> to create new syllabus</div>
+        </div>
+        
     {% else %}
     <div class="container">
         <div class="card h-100 rounded-4">
