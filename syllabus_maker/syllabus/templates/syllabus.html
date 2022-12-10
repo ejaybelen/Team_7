@@ -2,55 +2,61 @@
 
 {% block content %}
 
+{%load static%}
+<head>
+<link rel='stylesheet' type='text/css' media='screen' href='{%static  'css/styles.css'%}'>
+</head>
 
-<nav class="navbar navbar-expand-lg navbar-black bg-blue">
-<main class="mt-3 pt-3">
-  <div class="container-fluid">
-    <div class="col-md-15 fw-bold fs-2">
-      <a class="nav-link px-3 active" href="{% url 'add-syllabus' %}"><i class="bi bi-journal-plus"></i>CREATE NEW</a>
-    </div>
-
-      <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-        <div class="card-header">New Syllabus</div>
-          <div class="card-body">
-          <h1 class="card-title"> <center>+</center></h1>
-
-          <p class="card-text"></p>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-black">
+  <main class="row">
+    <div class="container-fluid">
+      <div class="fw-bold fs-2">
+          <a class="nav-link px-3 active" href="{% url 'add-syllabus' %}"><i class="bi bi-journal-plus"></i>CREATE NEW</a>
       </div>
-
-        <div class="col-md-15 fw-bold fs-2">
-         <a class="nav-link px-3 active" href="#"><i class="bi bi-speedometer2"></i>DASHBOARD</a>
+      
+        <div class="card position-relative m-3 shadow text-bg-light mb-3 border-primary" style="width: 18rem;">
+          <a class="card-header bg-primary text-light" href="{% url 'add-syllabus' %}" style="text-decoration: none"><strong>New Syllabus</strong></a>
+          <div class="card-body">
+            <a class="card-title" href="{% url 'add-syllabus' %}" style="text-decoration: none"><center><strong><h1>+</h1></strong></center></a>
+          </div>
         </div>
-      </div>  
+        <div class="column fw-bold fs-2">
+           <a class="nav-link px-3 active"><i class="bi bi-speedometer2"></i>DASHBOARD</a>
+        </div>
+        </div>
+        </div>
+
+{% for details in details_list %}
+
+<div class="card-group">
+  <div class="card position-relative m-3 shadow gy-3 my-3 mb-3 border-dark">
+    <a href="{% url 'show-syllabus' details.id %}">
+      <div class="card-header text-light bg-dark" >
+        <strong class="text-light" >{{ details.c_code }}</strong></a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-title">
+          <strong>Course Name: </strong>{{ details.name }}<br/>
+          <strong>Credits: </strong>{{ details.credits }} Units<br/> 
+        </h6>
+        <p class="card-text">
+          <strong>Course Description:</strong> </br>{{ details.course_description }}
+        </p>
+      </div>
     </div>
+  
+  
   </div>
 
+</main>
+</nav>
 
+<body style="background-image: url('{%static  'img/lime.png'%}');">
+</body>
 
-  {% for details in details_list %}
-  <div class="ml-5 row row-cols-1 row-cols-md-1 g-1">
-    <div class="col">
-   <div class="card text-bg-dark">
-     <a href="{% url 'show-syllabus' details.id %}">
-        <div class="card-header">
-        <strong>{{ details.c_code }}</strong></a>
-       </div>
-       <div class="card-body">
-          <h6 class="card-title">
-           Course Name: {{ details.name }}<br/>
-           Credits: {{ details.credits }} Units<br/> 
-         </h6>
-          <p class="card-text">
-           <strong>Course Description:</strong> </br>{{ details.course_description }}
-          </p>
-       </div>
-      </div>
-    </div>
 
   {% endfor %}
 
 
 {% endblock %}
 
-</main>
