@@ -30,10 +30,9 @@
 
 <div class="card-group">
   <div class="card position-relative m-3 shadow gy-3 my-3 mb-3 border-dark">
-    <a href="{% url 'show-syllabus' details.id %}">
-      <div class="card-header text-light bg-dark" >
+      <a class="card-header text-light bg-dark" href="{% url 'show-syllabus' details.id %}" style="text-decoration: none">
         <strong class="text-light" >{{ details.c_code }}</strong></a>
-      </div>
+      </a>
       <div class="card-body">
         <h6 class="card-title">
           <strong>Course Name: </strong>{{ details.name }}<br/>
