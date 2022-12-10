@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'navbar.html' %}
 
-    <h1>{{ syllabus.c_code }} Syllabus</h1>
-    <div class="text-end">
-      <a class="btn btn-secondary btn-sm rounded-4" href="{% url 'update-syllabus' syllabus.id %}">Update Syllabus</a>
-      <a class="btn btn-danger btn-sm rounded-4" href="{% url 'delete-syllabus' syllabus.id %}">Delete Syllabus</a>
+{%load static%}
+<head>
+<link rel='stylesheet' type='text/css' media='screen' href='{%static  'css/styles.css'%}'>
+</head>
+
+    <center><h1>Syllabus of {{ syllabus.c_code }} </h1></center>
+    </br></br>
+
+    <div class="text-center">
+      <a class="btn btn-secondary btn-sm rounded-4 shadow" href="{% url 'update-syllabus' syllabus.id %}">Update Syllabus</a>
+      <a class="btn btn-danger btn-sm rounded-4 shadow" href="{% url 'delete-syllabus' syllabus.id %}">Delete Syllabus</a>
     </div> </br>
-    <div class="card">
-        <div class="card-header">
+    <div class="card shadow mx-auto w-75 border-dark">
+        <div class="card-header text-light bg-dark">
           <strong>{{ syllabus.c_code }}</strong>
         </div>
         <div class="card-body">
@@ -23,12 +29,13 @@
         </div>
       </div>
       <br/>
-      <div class="text-end">
-        <a class="btn btn-info btn-sm rounded-4" href="{% url 'course-pdf' syllabus.id %}">Print to PDF</a>
+      <div class="text-center">
+        <a class="btn btn-info btn-sm rounded-4 shadow" href="{% url 'course-pdf' syllabus.id %}">Print to PDF</a>
+      </br>
       </div>
 
-
-
+      <body style="background-image: url('{%static  'img/largelime.png'%}');">
+      </body>
 
 
 {% endblock %}

@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'navbar.html' %}
+
+{%load static%}
+<head>
+<link rel='stylesheet' type='text/css' media='screen' href='{%static  'css/styles.css'%}'>
+</head>
+
     <center>
     {% if searched %}
         <h1>You Searched For {{ searched }}</h1>
-        <br/>
+        <br/><br/><br/><br/><br/>
         {% for syllabus in syllabus %}
-            <a href="{% url 'show-syllabus' syllabus.id %}">{{ syllabus.c_code }} {{ syllabus.name }}</a><br/>
+            <a style="color:black; text-decoration:none;"  href="{% url 'show-syllabus' syllabus.id %}"><h3>{{ syllabus.c_code }} {{ syllabus.name }}</h3></a><br/>
         {% endfor %}
 
     {% else %}
+    </br></br></br></br>
         <h1>Hey! You Forgot To Search For A Syllabus...</h1>
 
     {% endif %}
 
     </center>
 
+    <body style="background-image: url('{%static  'img/largelime.png'%}');">
+    </body>
 
 
 
