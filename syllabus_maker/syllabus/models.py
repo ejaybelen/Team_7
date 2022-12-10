@@ -7,14 +7,13 @@ from django.contrib.auth.models import User
 # Tables
 
 class Instructor(models.Model):
+    instructor = models.ForeignKey(User, blank=True, null=True, related_name='instructor', on_delete=models.CASCADE)
     abbrev = models.CharField(max_length=50)
-    fname = models.ForeignKey(User, blank=True, related_name='fname', on_delete=models.CASCADE)
-    lname = models.ForeignKey(User, blank=True, related_name='lname', on_delete=models.CASCADE)
     dept = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.abbrev + ' ' + self.fname + ' ' + self.lname
+        return self.abbrev + ' ' + str(self.instructor.first_name) + ' ' + str(self.instructor.last_name) 
 
 class Signature(models.Model):
     prep = models.ForeignKey(User, blank=True, related_name='prep', on_delete=models.CASCADE)
@@ -23,7 +22,7 @@ class Signature(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        return self.prep
+        return str(self.prep.first_name) + ' ' +  str(self.prep.last_name) + '-' + str(self.date)
 
 class Course(models.Model):
     c_code = models.CharField('Course Code', max_length=20)

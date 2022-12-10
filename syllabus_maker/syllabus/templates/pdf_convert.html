@@ -64,7 +64,7 @@
               <td>
                 {% for user in course.instructor.all %} 
                 <br>
-                {{ user.abbrev }} {{ user.fname }} {{ user.lname}} 
+                {{ user.abbrev }} {{ user.instructor.first_name }} {{ user.instructor.last_name}} 
                 <br>
                 {{ user.role }}, {{ user.dept }}
               {% endfor %}
@@ -95,7 +95,8 @@
             </tr>
             <tr>
               <th><h2>b. Prerequisites Co-requisites</h2></th>
-              <td>{{ course.prereq }}</td>
+              <td>{{ course.prereq }} <br>
+              {{ course.co_req }}</td>
             </tr>
             <tr>
               <th><h2>c. Course Classification (Required/elective/<br>selected/elective</h2></th>
@@ -116,22 +117,22 @@
               </tr>
               <tr>
                 <td colspan="2">
-                {{ course.ILO }}
+                {{ course.ILO | safe}}
                 </td>
                 <tr>
                   <th colspan="2"><h2>c. Student Outcomes Addressed by the Course</h2></th>
                 </tr>
                 <tr>
                   <td colspan="2">
-                  {{ course.s_outcomes }}
+                  {{ course.s_outcomes | safe}}
                   </td>
                   <tr>
                     <th colspan="2"><h2>COURSE TOPICS</h2></th>
                   </tr>
                   <td colspan="2">
-                    {{ course.prelim }}<br/>
-                    {{ course.midterm }}<br/>
-                    {{ course.finals }}
+                    {{ course.prelim | safe }}<br/>
+                    {{ course.midterm | safe}}<br/>
+                    {{ course.finals | safe }}
                   </td>
           </tbody>
       </table>
