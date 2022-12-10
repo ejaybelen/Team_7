@@ -37,7 +37,7 @@ class CourseForm(ModelForm):
             'course_description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Course Description'}),
             'prereq': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Prerequisites'}),
             'co_req': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Co-requisites'}),
-            'course_classification': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Course Classification (Required/elective/selected elective)'}),
+            'course_classification': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '(Required/elective/selected elective)'}),
             'course_objective': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Course Objective'}),
             'ILO': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Course Outcomes'}),
             's_outcomes': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Student Outcomes'}),

@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.db.models import Model
 
+
 # Tables
 
 class Instructor(models.Model):
