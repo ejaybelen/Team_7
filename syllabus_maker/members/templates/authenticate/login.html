@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <center>
-        <h1>Login</h1>
-        <br/><br/>
-
-            <form action="" method="POST">
-                {% csrf_token %}
-                <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Username</label>
-                      <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" name="password">
-                    </div>
-
-                <input type="submit" value="Submit" class="btn btn-secondary">
-
-            </form>
-    </center>
+<div class="container text-center py-5">
+<h1>Sittybos</h1>
+<h4>Login</h4>
+</div>
+<div class="container">
+  <div class="card mx-5 px-5">
+    <div class="card-body">
+      <div>
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              {{message}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Username:</label>
+              <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password:</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
+    </div>
+  </div>
+</div>
+            
 
 
 

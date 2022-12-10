@@ -2,22 +2,23 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-    <center>
+    <div class="container text-center my-5">
     {% if searched %}
-        <h1>You Searched For {{ searched }}</h1>
-        <br/>
+        <div class="pb-3">
+            <h1>You searched for <strong>{{ searched }}</strong></h1>
+        </div>
         {% for syllabus in syllabus %}
-            <a href="{% url 'show-syllabus' syllabus.id %}">{{ syllabus.c_code }} {{ syllabus.name }}</a><br/>
+        <div class="card my-4 mx-5">
+        <div class="card-body py-3">
+            <a href="{% url 'show-syllabus' syllabus.id %}" class="stretched-link text-decoration-none py-4">
+                {{ syllabus.c_code }} - {{ syllabus.name }}
+            </a>
+        </div>
+        </div>
         {% endfor %}
-
-    {% else %}
-        <h1>Hey! You Forgot To Search For A Syllabus...</h1>
-
+        {% else %}
+        <h1>Hey, you forgot to search something!</h1>
+    </div>
     {% endif %}
-
-    </center>
-
-
-
 
 {% endblock %}
