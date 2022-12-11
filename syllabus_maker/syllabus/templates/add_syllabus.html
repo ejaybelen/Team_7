@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{%static  'style.css'%}">
+
+
     <center>
-        <h1>Create a Syllabus</h1>
+        <strong><h1>Create a Syllabus</h1></strong>
         <br/><br/>
         {%  if submitted %}
-            Your Syllabus Was Created Successfully!!!
+        <h1>Your Syllabus Was Created Successfully!!!</h1>
+    </br></br>
+        <div class="col-lg-7s">
+            <a class="btn btn-secondary btn-sm rounded-4" href="{% url 'list-syllabus' %}">Continue</a>
+        </div>
 
         {% else %}
 
@@ -18,8 +28,9 @@
                     <button type="submit" value="Submit" class="btn1" >Submit</button>
                 </div>
                 <br/>
-
+            
             </form>
+        </center>
 
             <style>
                 *{
@@ -40,9 +51,10 @@
             </style>
 
         {% endif %}
-    </center>
+ 
 
-
+    <body id='bg' style="background-image: url('{%static  'img/gradd.png'%}');">
+    </body>
 
 
 {% endblock %}
