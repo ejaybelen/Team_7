@@ -1,14 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'navbar.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{%static  'style.css'%}">
+
+
+<center>
         <h1>Update Syllabus</h1>
-        <br/>
+        <br/><br/>
         <form action="" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <br/>
-            <input type="submit" value="Update" class="btn btn-secondary">
+            <div class="col-lg-4">
+            <button type="submit" value="Update" class="btn1" >Update</button>
+            </div>
+        <br/>
+        </center>
 
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .btn1{
+                border: none;
+                outline: none;
+                height: 40px;
+                width: 100%;
+                background-color: black;
+                color: white;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+        </style>
+
+        <body style="background-image: url('{%static  'img/gradd.png'%}');">
+        </body>
 
 {% endblock %}
