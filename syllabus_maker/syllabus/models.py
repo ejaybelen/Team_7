@@ -42,7 +42,7 @@ class Course(models.Model):
     prelim = RichTextField(blank=True, null=True)
     midterm = RichTextField(blank=True, null=True)
     finals = RichTextField(blank=True, null=True)
-    signatories = models.ForeignKey(Signature, blank=True, null=True, on_delete=models.SET_NULL)
+    signatories = models.ManyToManyField(Signature, blank=True, null=True)
 
     def __str__(self):
         return self.c_code + ' ' + self.name
