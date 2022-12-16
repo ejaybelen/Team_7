@@ -34,6 +34,14 @@
         width: 80%;
         word-wrap: break-word;
       }
+
+      .mt {
+        margin-top: 5px;
+      }
+
+      .center {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -142,7 +150,36 @@
         <tbody>
           <tr>
             <td>
-              Prepared by:
+              {% for user in course.instructor.all %} 
+              <div><strong>Prepared by:</div>
+              <br>
+              <div class="mt center">{{ user.abbrev }} {{ user.instructor.first_name }} {{ user.instructor.last_name }}</div>
+              <div class="center">Faculty Member's Printed Name and Signature</div></strong>
+            </td>
+            <td>
+              <div><strong>Noted by:</div>
+              <br>
+              <div class="mt center">Engr. Maria Cecilia A. Venal</div>
+              <div class="center">Department Chair</div></strong>
+            </td>
+            <td>
+              <div><strong>Approved by:</div>
+              <br>
+              <div class="mt center">Dr. Jesusa N. Padilla/ <br>
+              Dr. Cynthia C. Llanes</div>
+              <div class="center">Dean/VPAA</div></strong>
+            </td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>
+              <div>Date: </div>
+            </td>
+            <td>
+              <div>Date: </div>
+            </td>
+            <td>
+              <div>Date: </div>
             </td>
           </tr>
         </tbody>
