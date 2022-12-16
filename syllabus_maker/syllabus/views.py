@@ -76,3 +76,6 @@ def course_pdf(request, syllabus_id):
     if pisa_status.err:
        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
+
+def about(request):
+    return render(request, 'about.html')
