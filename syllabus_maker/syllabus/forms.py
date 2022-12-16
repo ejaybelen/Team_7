@@ -24,6 +24,7 @@ class CourseForm(ModelForm):
             'prelim': 'Prelim Period',
             'midterm': 'Midterm Period',
             'finals': 'Final Period',
+            'signatories': 'Signatories',
         }
         
         widgets = {
@@ -44,5 +45,6 @@ class CourseForm(ModelForm):
             'prelim': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Prelim Period'}),
             'midterm': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Midterm Period'}),
             'finals': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Final Period'}),
+            'signatories': forms.SelectMultiple(attrs={'class': 'form-control', 'placeholder': 'Signatories'}),
         }
 
